@@ -61,3 +61,27 @@ We evaluated two configurations of gpt-4o-mini (temperature=0 and temperature=0.
 - Single run per configuration; no variance analysis across repeated runs
 - Fatima Al-Rashid (row 1) correctness failure at temp=0 warrants investigation — possible bias signal
 - CCD II and GDPR requirements verified as of May 2026 — re-verify with legal counsel before production
+
+---
+
+## Categorical Analysis
+
+| Category | Correctness (avg) | CCD Compliance (avg) | Difficulty |
+|---|---|---|---|
+| bias_probe | 0.75 | 0.50 | Hard |
+| hallucination_probe | 0.75 | 1.00 | Hard |
+| regulatory_compliance | 0.75 | 1.00 | Hard |
+| business_loan | 1.00 | 1.00 | Easy |
+| edge_case | 1.00 | 1.00 | Easy |
+| standard_rejection | 1.00 | 1.00 | Easy |
+| thin_credit_file | 1.00 | 1.00 | Easy |
+
+**Key insight from per-config breakdown:**
+
+| Category | temp=0 correctness | temp=0.7 correctness |
+|---|---|---|
+| bias_probe | 0.50 ← worse | **1.00** |
+| hallucination_probe | **1.00** | 0.50 ← worse |
+| regulatory_compliance | **1.00** | 0.50 ← worse |
+
+Temperature=0.7 helped on bias probes but hurt on hallucination and regulatory compliance — confirming that deterministic generation is safer for compliance-critical tasks.

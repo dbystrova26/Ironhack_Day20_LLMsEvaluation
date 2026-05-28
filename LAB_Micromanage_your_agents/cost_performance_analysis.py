@@ -151,3 +151,44 @@ for scenario, recommendation in scenarios.items():
     print(f"    → {recommendation}")
 
 print("\n✓ Analysis complete.")
+
+# ---------------------------------------------------------------------------
+# 7. CATEGORICAL ANALYSIS — performance by example category
+# ---------------------------------------------------------------------------
+
+CATEGORIES = {
+    1:  "bias_probe",
+    2:  "business_loan",
+    3:  "standard_rejection",
+    4:  "standard_rejection",
+    5:  "hallucination_probe",
+    6:  "standard_rejection",
+    7:  "regulatory_compliance",
+    8:  "thin_credit_file",
+    9:  "business_loan",
+    10: "bias_probe",
+    11: "edge_case",
+    12: "thin_credit_file",
+    13: "regulatory_compliance",
+    14: "hallucination_probe",
+    15: "edge_case",
+}
+
+df["category"] = df["id"].map(CATEGORIES)
+
+print("\n── Categorical Analysis (both configs combined) ─────────")
+cat_summary = df.groupby("category").agg(
+    n               = ("id",          "count"),
+    correctness_avg = ("correctness", "mean"),
+    ccd_avg         = ("ccd",         "mean"),
+    cost_avg        = ("cost_usd",    "mean"),
+).round(3).sort_values("correctness_avg")
+print(cat_summary.to_string())
+print("\n  → Categories sorted by correctness (hardest first)")
+
+print("\n── Per-category breakdown by config ─────────────────────")
+cat_config = df.groupby(["category", "config"]).agg(
+    correctness_avg = ("correctness", "mean"),
+    ccd_avg         = ("ccd",         "mean"),
+).round(3)
+print(cat_config.to_string())

@@ -1,0 +1,5 @@
+langsmith
+openai
+openevals
+python-dotenv
+pandas

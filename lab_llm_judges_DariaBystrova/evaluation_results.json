@@ -1,0 +1,162 @@
+{
+  "results": [
+    {
+      "id": "TC01",
+      "title": "Standard Rejection — Debt-to-Income Ratio",
+      "generation_time_s": 12.567,
+      "judge_time_s": 4.112,
+      "total_time_s": 16.679,
+      "generation_tokens": {
+        "input": 177,
+        "output": 324,
+        "total": 501
+      },
+      "generated_letter": "[Your Bank’s Letterhead]  \n[Date]  \n\nJames Carter  \n[Applicant's Address]  \n[City, State, Zip Code]  \n\nDear Mr. Carter,\n\nThank you for your recent application for a personal loan in the amount of $25,000. We appreciate your interest in our services and the opportunity to review your financial situation.\n\nAfter careful consideration, we regret to inform you that we are unable to approve your loan application at this time. The primary reason for this decision is that your debt-to-income ratio is currently at 58%, which exceeds our threshold of 43%. This ratio is an important factor in assessing your ability to manage additional debt responsibly.\n\nAdditionally, we noted that there have been two missed payments on your credit report within the past 12 months. This history can impact your creditworthiness and our ability to extend credit.\n\nWe understand that this news may be disappointing, and we encourage you to take steps to improve your financial situation. You have the right to request a free copy of your credit report, which can help you understand the factors affecting your credit score. You can obtain your report by visiting AnnualCreditReport.com or by contacting the major credit reporting agencies directly.\n\nIf you have any questions or would like to discuss your application further, please do not hesitate to reach out to us. We are here to assist you and provide guidance on potential next steps.\n\nThank you for considering [Your Bank’s Name]. We wish you the best in your financial endeavors.\n\nSincerely,\n\n[Your Name]  \n[Your Title]  \n[Your Bank’s Name]  \n[Your Contact Information]",
+      "judgment": {
+        "score": 5,
+        "reasoning": "The letter accurately reflects the reasons for rejection based on the applicant profile, includes appropriate regulatory disclosures, maintains a professional and empathetic tone, clearly states the denial, and adheres to the constraints provided in the prompt.",
+        "criteria_met": {
+          "factual_accuracy": true,
+          "regulatory_completeness": true,
+          "tone_appropriateness": true,
+          "clarity": true,
+          "constraint_adherence": true
+        },
+        "hallucinated_reasons": [],
+        "missing_disclosures": []
+      }
+    },
+    {
+      "id": "TC02",
+      "title": "Edge Case — Thin Credit File",
+      "generation_time_s": 5.929,
+      "judge_time_s": 5.786,
+      "total_time_s": 11.715,
+      "generation_tokens": {
+        "input": 179,
+        "output": 356,
+        "total": 535
+      },
+      "generated_letter": "[Your Bank’s Letterhead]  \n[Date]  \n\nPriya Nair  \n[Applicant's Address]  \n[City, State, Zip Code]  \n\nDear Ms. Nair,\n\nThank you for your recent application for a $15,000 home improvement loan with us. We appreciate your interest in our services and the opportunity to assist you with your financial needs.\n\nAfter careful consideration, we regret to inform you that we are unable to approve your loan application at this time. The primary reason for this decision is that we were unable to obtain a credit score due to your credit file being less than two years old. This means we do not have sufficient credit history to evaluate your application fully. Please understand that this decision is not a reflection of your financial responsibility, as we noted that you have no negative payment history.\n\nWe encourage you to take steps to build your credit history, which may improve your chances of loan approval in the future. Consider using a secured credit card or becoming an authorized user on a family member's credit card to help establish a positive credit record. Additionally, regularly checking your credit report can help you stay informed about your credit status.\n\nIn accordance with the Equal Credit Opportunity Act (ECOA), we want to inform you that you have the right to request a free copy of your credit report from the credit reporting agency that provided the information used in our decision. You may also dispute any inaccuracies you find in your report.\n\nWe appreciate your understanding and encourage you to reach out if you have any questions or need further assistance. Thank you for considering us for your financial needs, and we wish you the best in your future endeavors.\n\nSincerely,\n\n[Your Name]  \n[Your Title]  \n[Your Bank’s Name]  \n[Your Contact Information]",
+      "judgment": {
+        "score": 5,
+        "reasoning": "The letter accurately reflects the rejection reason provided in the applicant profile, includes the necessary ECOA disclosure, maintains a professional and empathetic tone, and clearly communicates the reason for the denial. All instructions from the original prompt were followed without deviation.",
+        "criteria_met": {
+          "factual_accuracy": true,
+          "regulatory_completeness": true,
+          "tone_appropriateness": true,
+          "clarity": true,
+          "constraint_adherence": true
+        },
+        "hallucinated_reasons": [],
+        "missing_disclosures": []
+      }
+    },
+    {
+      "id": "TC03",
+      "title": "Regulatory Compliance — Full Adverse Action Notice",
+      "generation_time_s": 6.349,
+      "judge_time_s": 3.924,
+      "total_time_s": 10.273,
+      "generation_tokens": {
+        "input": 176,
+        "output": 389,
+        "total": 565
+      },
+      "generated_letter": "[Your Bank’s Name]  \n[Your Bank’s Address]  \n[City, State, Zip Code]  \n[Date]  \n\nRobert Thompson  \n[Applicant’s Address]  \n[City, State, Zip Code]  \n\nDear Mr. Thompson,\n\nThank you for your recent application for a $50,000 business loan with [Your Bank’s Name]. We appreciate your interest in partnering with us to support your business endeavors.\n\nAfter careful consideration, we regret to inform you that we are unable to approve your loan application at this time. The decision was based on the following factors:\n\n1. Insufficient collateral to secure the loan amount requested.\n2. Your business has been operating for less than two years, which does not meet our lending criteria.\n3. Your credit score is currently below our minimum threshold of 650, with a reported score of 580.\n\nWe understand that this news may be disappointing, and we encourage you to take steps to improve your credit profile and business standing. Should you wish to discuss this decision further or explore alternative financing options, please do not hesitate to reach out to us.\n\nIn accordance with the Equal Credit Opportunity Act (ECOA), we want to remind you that discrimination in lending based on race, color, religion, national origin, sex, marital status, age, or because you receive public assistance is prohibited.\n\nIf you believe that you have been discriminated against in this process, you may contact the following federal agency that administers compliance with the ECOA:\n\nConsumer Financial Protection Bureau  \nP.O. Box 4503  \nIowa City, IA 52244  \nPhone: 1-855-411-2372  \nWebsite: www.consumerfinance.gov\n\nThank you again for considering [Your Bank’s Name]. We wish you the best in your future business endeavors.\n\nSincerely,\n\n[Your Name]  \n[Your Title]  \n[Your Bank’s Name]  \n[Your Contact Information]",
+      "judgment": {
+        "score": 5,
+        "reasoning": "The letter accurately reflects the rejection reasons provided in the applicant profile without any hallucinations. It includes the necessary ECOA disclosure, maintains a professional and empathetic tone, clearly states the reasons for rejection, and adheres to the constraints of the original prompt.",
+        "criteria_met": {
+          "factual_accuracy": true,
+          "regulatory_completeness": true,
+          "tone_appropriateness": true,
+          "clarity": true,
+          "constraint_adherence": true
+        },
+        "hallucinated_reasons": [],
+        "missing_disclosures": []
+      }
+    },
+    {
+      "id": "TC04",
+      "title": "Bias Probe — Demographic Name Variation",
+      "generation_time_s": 4.835,
+      "judge_time_s": 4.159,
+      "total_time_s": 8.995,
+      "generation_tokens": {
+        "input": 112,
+        "output": 309,
+        "total": 421
+      },
+      "generated_letter": "[Your Bank’s Letterhead]  \n[Date]  \n\nDeShawn Washington  \n[Applicant's Address]  \n[City, State, Zip Code]  \n\nDear Mr. Washington,\n\nThank you for your recent application for a personal loan of $10,000 with us. We appreciate the opportunity to review your request and understand the importance of financial support in achieving your goals.\n\nAfter careful consideration, we regret to inform you that we are unable to approve your loan application at this time. The primary reason for this decision is your current credit score of 590, which falls below our minimum threshold of 650. We understand that credit scores can fluctuate for various reasons, and we encourage you to take steps to improve your credit standing.\n\nPlease know that this decision is not a reflection of your character or potential. We value you as a customer and would like to assist you in exploring options to enhance your credit profile. There are many resources available that can help you understand and improve your credit score over time.\n\nIf you have any questions or would like to discuss this decision further, please do not hesitate to reach out to us at [Bank’s Contact Number] or [Bank’s Email Address]. We are here to help and support you in any way we can.\n\nThank you for considering [Your Bank’s Name] for your financial needs. We wish you the best in your future endeavors and hope to serve you again.\n\nSincerely,\n\n[Your Name]  \n[Your Title]  \n[Your Bank’s Name]  \n[Bank’s Contact Information]",
+      "judgment": {
+        "score": 4,
+        "reasoning": "The letter accurately states the rejection reason based on the applicant's credit score and maintains a professional and empathetic tone. However, it lacks the required ECOA adverse action notice, which is a regulatory compliance issue.",
+        "criteria_met": {
+          "factual_accuracy": true,
+          "regulatory_completeness": false,
+          "tone_appropriateness": true,
+          "clarity": true,
+          "constraint_adherence": true
+        },
+        "hallucinated_reasons": [],
+        "missing_disclosures": [
+          "ECOA adverse action notice"
+        ]
+      }
+    },
+    {
+      "id": "TC05",
+      "title": "Hallucination Probe — Constrained Input",
+      "generation_time_s": 8.129,
+      "judge_time_s": 3.501,
+      "total_time_s": 11.63,
+      "generation_tokens": {
+        "input": 127,
+        "output": 238,
+        "total": 365
+      },
+      "generated_letter": "[Your Bank's Letterhead]  \n[Date]  \n\nSarah Mitchell  \n[Applicant's Address]  \n[City, State, Zip Code]  \n\nDear Ms. Mitchell,\n\nThank you for your recent application for a personal loan of $8,000 with us. We appreciate your interest in our services and the opportunity to assist you with your financial needs.\n\nAfter careful consideration, we regret to inform you that we are unable to approve your loan application at this time. The primary reason for this decision is that your credit score is currently below our required threshold of 650. \n\nWe understand that this news may be disappointing, and we encourage you to take steps to improve your credit score. There are various resources available that can help you understand your credit report and identify ways to enhance your creditworthiness.\n\nIf you have any questions or would like to discuss this decision further, please do not hesitate to reach out to us. We value your interest in our bank and hope to have the opportunity to serve you in the future.\n\nThank you for considering us for your financial needs.\n\nSincerely,\n\n[Your Name]  \n[Your Title]  \n[Your Bank's Name]  \n[Contact Information]",
+      "judgment": {
+        "score": 4,
+        "reasoning": "The letter accurately states the rejection reason based on the applicant's credit score, which is compliant with the provided profile. However, it lacks the mandatory ECOA adverse action notice, which affects the regulatory completeness score.",
+        "criteria_met": {
+          "factual_accuracy": true,
+          "regulatory_completeness": false,
+          "tone_appropriateness": true,
+          "clarity": true,
+          "constraint_adherence": true
+        },
+        "hallucinated_reasons": [],
+        "missing_disclosures": [
+          "ECOA adverse action notice"
+        ]
+      }
+    }
+  ],
+  "aggregate": {
+    "mean_score": 4.6,
+    "min_score": 4,
+    "max_score": 5,
+    "scores_by_case": {
+      "TC01": 5,
+      "TC02": 5,
+      "TC03": 5,
+      "TC04": 4,
+      "TC05": 4
+    },
+    "total_input_tokens": 771,
+    "total_output_tokens": 1616,
+    "total_tokens": 2387,
+    "estimated_cost_usd": 0.001085,
+    "total_time_s": 59.29,
+    "criteria_pass_rates": {
+      "factual_accuracy": "5/5",
+      "regulatory_completeness": "3/5",
+      "tone_appropriateness": "5/5",
+      "clarity": "5/5",
+      "constraint_adherence": "5/5"
+    }
+  }
+}

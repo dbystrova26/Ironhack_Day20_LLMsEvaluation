@@ -2,16 +2,30 @@
 
 ## What I Built
 
-I implemented a complete LLM-as-judge evaluation pipeline for automated bank loan rejection letters using the OpenAI API directly (no LangChain), keeping the code simple, readable, and easy to run.
+I implemented a complete LLM-as-judge evaluation pipeline for automated bank loan rejection letters using the OpenAI and Anthropic APIs directly (no LangChain), producing both a single-model evaluation and a three-way A/B comparison with visualisation.
 
-The pipeline has three components. First, a **target function** (`generate_letter`) that calls `gpt-4o-mini` with a compliance officer system prompt to produce a loan rejection letter for each test case. Second, a **judge function** (`evaluate_letter`) that calls `gpt-4o-mini` again with a structured rubric prompt to score the generated letter on five criteria: factual accuracy, regulatory completeness, tone appropriateness, clarity, and constraint adherence. The judge is instructed to return structured JSON, enforced via `response_format={"type": "json_object"}` to eliminate parsing failures. Third, a **metrics collector** that tracks score, generation time, judge time, token usage, and estimated cost per test case, then computes aggregate statistics across all five prompts.
+The pipeline has three components. First, a **target function** that generates a loan rejection letter for each test case — using either `gpt-4o-mini` (via OpenAI) or `claude-sonnet-4-5-20250929` (via Anthropic). Second, a **judge function** that always uses `gpt-4o-mini` to score the generated letter on five criteria: factual accuracy, regulatory completeness, tone appropriateness, clarity, and constraint adherence, returning structured JSON enforced via `response_format={"type": "json_object"}`. Third, a **metrics collector** that tracks score, generation time, token usage, and estimated cost per test case, then produces an aggregate summary and a four-panel matplotlib dashboard replicating the LangSmith comparison view.
+
+## Three Configurations Compared
+
+| Config | Model | Temperature |
+|--------|-------|-------------|
+| A | gpt-4o-mini | 0.0 (deterministic) |
+| B | gpt-4o-mini | 0.7 (creative) |
+| C | claude-sonnet-4-5-20250929 | 0.0 |
 
 ## Test Dataset Design
 
-The five test cases were deliberately chosen to cover distinct failure modes rather than variations of the same scenario. TC01 tests the standard happy-path rejection. TC02 probes edge-case tone handling for thin credit files. TC03 stress-tests regulatory completeness by requiring a full ECOA adverse action notice with all three mandatory elements. TC04 is a bias probe using a demographically distinct name on an otherwise identical profile. TC05 is the hallucination probe — the model is explicitly told no other reasons exist and must not fabricate them.
+The five test cases cover distinct failure modes: standard DTI-based rejection (TC01), thin credit file edge case (TC02), full ECOA adverse action notice (TC03), demographic bias probe with a culturally distinct name on an identical profile (TC04), and hallucination under strictly constrained input (TC05).
 
 ## Key Findings
 
-The most consistent failure pattern observed was on regulatory completeness: the model frequently included partial ECOA language but omitted the federal agency contact information, which is the element most likely to trigger a compliance finding in a real audit. The hallucination probe (TC05) produced the most variable results — the model sometimes added plausible-sounding secondary reasons ("income verification", "employment stability") that were not present in the input profile, confirming that constrained generation without explicit grounding is a genuine production risk. Tone was generally the strongest dimension, with the judge scoring most letters 4–5 on empathy and professionalism.
+**Regulatory completeness** was the most consistent failure dimension across all three configurations. TC04 and TC05 — which did not explicitly mention ECOA in the prompt — produced letters missing the adverse action notice, confirming the model will not self-apply compliance requirements unless instructed. This is a critical production insight: the ECOA disclosure must be hardcoded into the system prompt, not left to individual user prompts.
 
-Total cost for a full 5-case evaluation run was under $0.01 at `gpt-4o-mini` pricing, confirming this pipeline can be run frequently during development without meaningful cost impact.
+**Hallucination** (TC05) was well-controlled across all configurations — no fabricated rejection reasons were detected in any run, which is the most important safety result for this use case.
+
+**Claude Sonnet** produced longer, more detailed letters with richer empathy language, scoring consistently on tone. The cost difference was significant: Claude Sonnet costs approximately 20x more per letter than gpt-4o-mini at current API pricing ($0.003–0.005 per letter vs ~$0.0001), which matters at production volume (5,000 letters/month = ~$15–25 for Claude vs ~$0.50 for gpt-4o-mini).
+
+**Temperature effect** on gpt-4o-mini was modest for quality scores but visible in letter length and token count — temp=0.7 produced slightly more varied, sometimes warmer language but also introduced minor inconsistencies in regulatory boilerplate phrasing.
+
+Total cost for the full three-way evaluation run (15 letters generated + 15 judge calls) was under $0.05, confirming the pipeline can be run iteratively during development at negligible cost.

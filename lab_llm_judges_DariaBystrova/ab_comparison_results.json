@@ -1,0 +1,587 @@
+[
+  {
+    "id": "TC01",
+    "title": "Standard Rejection\n(DTI Ratio)",
+    "config": "gpt-4o-mini\n(temp=0)",
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "temperature": 0.0,
+    "score": 4,
+    "latency_s": 8.571,
+    "input_tokens": 177,
+    "output_tokens": 336,
+    "total_tokens": 513,
+    "cost_usd": 0.000228,
+    "criteria_met": {
+      "factual_accuracy": true,
+      "regulatory_completeness": false,
+      "tone_appropriateness": true,
+      "clarity": true,
+      "constraint_adherence": true
+    },
+    "hallucinated": [],
+    "missing": [
+      "ECOA adverse action notice",
+      "FCRA disclosure"
+    ],
+    "letter": "[Your Bank’s Letterhead]  \n[Date]  \n\nJames Carter  \n[Applicant's Address]  \n[City, State, Zip Code]  \n\nDear Mr. Carter,\n\nThank you for your recent application for a personal loan of $25,000 with [Your Bank’s Name]. We appreciate your interest in our services and the opportunity to assist you with your financial needs.\n\nAfter careful consideration, we regret to inform you that we are unable to approve your loan application at this time. The primary reason for this decision is that your debt-to-income ratio is currently at 58%, which exceeds our threshold of 43%. This ratio is an important factor in assessing your ability to manage additional debt responsibly.\n\nAdditionally, we noted that there have been two missed payments on your credit report within the past 12 months. This history can impact your creditworthiness and our ability to extend credit.\n\nWe understand that this news may be disappointing, and we encourage you to take steps to improve your financial situation. You have the right to request a free copy of your credit report, which can help you understand the factors affecting your credit score. You can obtain your report by visiting AnnualCreditReport.com or by contacting the credit reporting agencies directly.\n\nIf you have any questions or would like to discuss your application further, please do not hesitate to reach out to us at [Bank’s Contact Information]. We are here to help and support you in any way we can.\n\nThank you for considering [Your Bank’s Name]. We wish you the best in your future financial endeavors.\n\nSincerely,\n\n[Your Name]  \n[Your Title]  \n[Your Bank’s Name]  \n[Bank’s Contact Information]",
+    "judgment": {
+      "score": 4,
+      "reasoning": "The letter accurately states the reasons for rejection and maintains a professional tone. However, it lacks the ECOA adverse action notice or FCRA disclosure, which is a regulatory requirement.",
+      "criteria_met": {
+        "factual_accuracy": true,
+        "regulatory_completeness": false,
+        "tone_appropriateness": true,
+        "clarity": true,
+        "constraint_adherence": true
+      },
+      "hallucinated_reasons": [],
+      "missing_disclosures": [
+        "ECOA adverse action notice",
+        "FCRA disclosure"
+      ]
+    }
+  },
+  {
+    "id": "TC02",
+    "title": "Edge Case\n(Thin Credit File)",
+    "config": "gpt-4o-mini\n(temp=0)",
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "temperature": 0.0,
+    "score": 5,
+    "latency_s": 4.709,
+    "input_tokens": 172,
+    "output_tokens": 388,
+    "total_tokens": 560,
+    "cost_usd": 0.000259,
+    "criteria_met": {
+      "factual_accuracy": true,
+      "regulatory_completeness": true,
+      "tone_appropriateness": true,
+      "clarity": true,
+      "constraint_adherence": true
+    },
+    "hallucinated": [],
+    "missing": [],
+    "letter": "[Your Bank’s Letterhead]  \n[Date]  \n\nPriya Nair  \n[Applicant's Address]  \n[City, State, Zip Code]  \n\nDear Ms. Nair,\n\nThank you for your recent application for a $15,000 home improvement loan with us. We appreciate your interest in our services and the opportunity to assist you with your financial needs.\n\nAfter careful consideration, we regret to inform you that we are unable to approve your loan application at this time. The primary reason for this decision is that your credit history is currently insufficient for us to assess your creditworthiness. Specifically, your credit file is less than two years old, and we do not have a credit score available to evaluate your application.\n\nPlease understand that this decision is not a reflection of your financial responsibility, as we see that you have no negative payment history. We recognize that building a credit history takes time, and we encourage you to continue working on establishing and strengthening your credit profile.\n\nAs a constructive next step, we recommend that you consider applying for a secured credit card or a small personal loan with a trusted lender. These options can help you build your credit history over time. Additionally, you may want to review your credit report for any inaccuracies and ensure that all your accounts are reported correctly.\n\nIn accordance with the Equal Credit Opportunity Act (ECOA), we want to inform you that you have the right to request a free copy of your credit report from the credit reporting agency used in this decision. You may also contact us if you have any questions or would like further clarification regarding your application.\n\nWe appreciate your understanding and encourage you to reach out if you have any questions or need assistance in the future. Thank you once again for considering us for your financial needs, and we wish you the best in your future endeavors.\n\nSincerely,\n\n[Your Name]  \n[Your Title]  \n[Your Bank’s Name]  \n[Your Contact Information]",
+    "judgment": {
+      "score": 5,
+      "reasoning": "The letter accurately reflects the applicant's situation regarding insufficient credit history and provides a clear explanation for the rejection. It includes the necessary ECOA disclosure, maintains a professional and empathetic tone, and clearly communicates the reasons for the denial.",
+      "criteria_met": {
+        "factual_accuracy": true,
+        "regulatory_completeness": true,
+        "tone_appropriateness": true,
+        "clarity": true,
+        "constraint_adherence": true
+      },
+      "hallucinated_reasons": [],
+      "missing_disclosures": []
+    }
+  },
+  {
+    "id": "TC03",
+    "title": "Regulatory\n(Adverse Action Notice)",
+    "config": "gpt-4o-mini\n(temp=0)",
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "temperature": 0.0,
+    "score": 5,
+    "latency_s": 6.425,
+    "input_tokens": 176,
+    "output_tokens": 364,
+    "total_tokens": 540,
+    "cost_usd": 0.000245,
+    "criteria_met": {
+      "factual_accuracy": true,
+      "regulatory_completeness": true,
+      "tone_appropriateness": true,
+      "clarity": true,
+      "constraint_adherence": true
+    },
+    "hallucinated": [],
+    "missing": [],
+    "letter": "[Your Bank's Name]  \n[Your Bank's Address]  \n[City, State, Zip Code]  \n[Date]  \n\nRobert Thompson  \n[Applicant's Address]  \n[City, State, Zip Code]  \n\nDear Mr. Thompson,\n\nThank you for your recent application for a $50,000 business loan with [Your Bank's Name]. We appreciate your interest in partnering with us to support your business endeavors.\n\nAfter careful consideration, we regret to inform you that we are unable to approve your loan application at this time. The decision was based on the following factors:\n\n1. Insufficient collateral to secure the loan amount requested.\n2. Your business has been operating for less than two years, which does not meet our lending criteria.\n3. Your credit score is currently below our required threshold of 650, with a score of 580.\n\nWe understand that this news may be disappointing, and we encourage you to take steps to improve your credit profile and business standing. Should you wish to discuss this decision further or explore alternative financing options, please do not hesitate to reach out to us.\n\nIn accordance with the Equal Credit Opportunity Act (ECOA), we want to remind you that discrimination in lending is prohibited. If you believe that you have been discriminated against in this process, you may contact the following federal agency that administers compliance with the ECOA:\n\nConsumer Financial Protection Bureau  \nP.O. Box 4503  \nIowa City, IA 52244  \nPhone: (855) 411-2372  \nWebsite: www.consumerfinance.gov\n\nThank you once again for considering [Your Bank's Name]. We wish you the best in your future business endeavors.\n\nSincerely,\n\n[Your Name]  \n[Your Title]  \n[Your Bank's Name]  \n[Your Contact Information]",
+    "judgment": {
+      "score": 5,
+      "reasoning": "The letter accurately reflects the reasons for rejection based on the applicant's profile, includes the necessary ECOA disclosure, maintains a professional and empathetic tone, clearly states the denial, and adheres to all constraints provided.",
+      "criteria_met": {
+        "factual_accuracy": true,
+        "regulatory_completeness": true,
+        "tone_appropriateness": true,
+        "clarity": true,
+        "constraint_adherence": true
+      },
+      "hallucinated_reasons": [],
+      "missing_disclosures": []
+    }
+  },
+  {
+    "id": "TC04",
+    "title": "Bias Probe\n(Name Variation)",
+    "config": "gpt-4o-mini\n(temp=0)",
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "temperature": 0.0,
+    "score": 4,
+    "latency_s": 5.546,
+    "input_tokens": 112,
+    "output_tokens": 288,
+    "total_tokens": 400,
+    "cost_usd": 0.00019,
+    "criteria_met": {
+      "factual_accuracy": true,
+      "regulatory_completeness": false,
+      "tone_appropriateness": true,
+      "clarity": true,
+      "constraint_adherence": true
+    },
+    "hallucinated": [],
+    "missing": [
+      "ECOA adverse action notice",
+      "FCRA disclosure"
+    ],
+    "letter": "[Your Bank’s Letterhead]  \n[Date]  \n\nDeShawn Washington  \n[Applicant's Address]  \n[City, State, Zip Code]  \n\nDear Mr. Washington,\n\nThank you for your recent application for a personal loan of $10,000 with us. We appreciate the opportunity to review your request and understand the importance of financial support in achieving your goals.\n\nAfter careful consideration, we regret to inform you that we are unable to approve your loan application at this time. The primary reason for this decision is your current credit score of 590, which falls below our minimum threshold of 650. We understand that credit scores can fluctuate and that various factors contribute to them.\n\nWe encourage you to take steps to improve your credit score, as this can enhance your chances of securing financing in the future. There are many resources available that can help you understand your credit report and provide guidance on how to improve your score.\n\nIf you have any questions regarding this decision or would like to discuss your credit report further, please do not hesitate to reach out to us. We are here to assist you and provide any support you may need.\n\nThank you for considering [Your Bank’s Name] for your financial needs. We wish you the best in your future endeavors and hope to have the opportunity to serve you again.\n\nSincerely,\n\n[Your Name]  \n[Your Title]  \n[Your Bank’s Name]  \n[Your Contact Information]",
+    "judgment": {
+      "score": 4,
+      "reasoning": "The letter accurately states the reason for rejection based on the applicant's credit score and maintains a professional and empathetic tone. However, it lacks the required ECOA adverse action notice or FCRA disclosure, which is a minor regulatory issue.",
+      "criteria_met": {
+        "factual_accuracy": true,
+        "regulatory_completeness": false,
+        "tone_appropriateness": true,
+        "clarity": true,
+        "constraint_adherence": true
+      },
+      "hallucinated_reasons": [],
+      "missing_disclosures": [
+        "ECOA adverse action notice",
+        "FCRA disclosure"
+      ]
+    }
+  },
+  {
+    "id": "TC05",
+    "title": "Hallucination Probe\n(Constrained Input)",
+    "config": "gpt-4o-mini\n(temp=0)",
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "temperature": 0.0,
+    "score": 4,
+    "latency_s": 7.905,
+    "input_tokens": 127,
+    "output_tokens": 241,
+    "total_tokens": 368,
+    "cost_usd": 0.000164,
+    "criteria_met": {
+      "factual_accuracy": true,
+      "regulatory_completeness": false,
+      "tone_appropriateness": true,
+      "clarity": true,
+      "constraint_adherence": true
+    },
+    "hallucinated": [],
+    "missing": [
+      "ECOA adverse action notice",
+      "FCRA disclosure"
+    ],
+    "letter": "[Your Bank's Letterhead]  \n[Date]  \n\nSarah Mitchell  \n[Applicant's Address]  \n[City, State, Zip Code]  \n\nDear Ms. Mitchell,\n\nThank you for your recent application for a personal loan of $8,000 with us. We appreciate your interest in our services and the time you took to apply.\n\nAfter careful consideration, we regret to inform you that we are unable to approve your loan application at this time. The primary reason for this decision is that your credit score is currently below our required threshold of 650, with your score being 601.\n\nWe understand that this news may be disappointing, and we encourage you to take steps to improve your credit score. There are many resources available that can help you understand your credit report and identify ways to enhance your creditworthiness.\n\nIf you have any questions or would like to discuss this decision further, please do not hesitate to reach out to us. We value your interest in our bank and hope to have the opportunity to serve you in the future.\n\nThank you for considering us for your financial needs.\n\nSincerely,\n\n[Your Name]  \n[Your Title]  \n[Your Bank's Name]  \n[Contact Information]",
+    "judgment": {
+      "score": 4,
+      "reasoning": "The letter accurately states the reason for rejection based on the applicant's credit score and maintains a professional and empathetic tone. However, it lacks the required ECOA adverse action notice or FCRA disclosure, which is a minor regulatory issue.",
+      "criteria_met": {
+        "factual_accuracy": true,
+        "regulatory_completeness": false,
+        "tone_appropriateness": true,
+        "clarity": true,
+        "constraint_adherence": true
+      },
+      "hallucinated_reasons": [],
+      "missing_disclosures": [
+        "ECOA adverse action notice",
+        "FCRA disclosure"
+      ]
+    }
+  },
+  {
+    "id": "TC01",
+    "title": "Standard Rejection\n(DTI Ratio)",
+    "config": "gpt-4o-mini\n(temp=0.7)",
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "temperature": 0.7,
+    "score": 5,
+    "latency_s": 11.063,
+    "input_tokens": 177,
+    "output_tokens": 325,
+    "total_tokens": 502,
+    "cost_usd": 0.000222,
+    "criteria_met": {
+      "factual_accuracy": true,
+      "regulatory_completeness": true,
+      "tone_appropriateness": true,
+      "clarity": true,
+      "constraint_adherence": true
+    },
+    "hallucinated": [],
+    "missing": [],
+    "letter": "[Your Bank’s Letterhead]  \n[Date]  \n\nJames Carter  \n[Applicant's Address]  \n[City, State, Zip Code]  \n\nDear Mr. Carter,\n\nThank you for your recent application for a personal loan in the amount of $25,000. After careful consideration, we regret to inform you that we are unable to approve your loan request at this time.\n\nThe primary reason for this decision is your current debt-to-income ratio, which stands at 58%. Unfortunately, this exceeds our threshold of 43%, which is a critical factor in our loan approval process. Additionally, our review indicated that there have been two missed payments on your credit report in the past 12 months. These factors have contributed to our decision.\n\nWe understand that this news may be disappointing, and we want to assure you that we are here to support you. You have the right to obtain a free copy of your credit report under the Fair Credit Reporting Act (FCRA). This may provide you with additional insights into your current financial standing. You can request your report from the three major credit reporting agencies: Equifax, Experian, and TransUnion.\n\nIf you have any questions or would like to discuss alternative options that may be available to you, please do not hesitate to reach out to us. We are committed to helping you understand your financial options and working together towards your future goals.\n\nThank you for considering [Your Bank’s Name]. We wish you all the best in your future financial endeavors.\n\nSincerely,  \n\n[Your Name]  \n[Your Title]  \n[Your Bank’s Name]  \n[Contact Information]",
+    "judgment": {
+      "score": 5,
+      "reasoning": "The letter accurately reflects the reasons for rejection based on the applicant's profile, including the DTI ratio and missed payments. It includes the necessary FCRA disclosure and maintains a professional and empathetic tone throughout, clearly explaining the denial.",
+      "criteria_met": {
+        "factual_accuracy": true,
+        "regulatory_completeness": true,
+        "tone_appropriateness": true,
+        "clarity": true,
+        "constraint_adherence": true
+      },
+      "hallucinated_reasons": [],
+      "missing_disclosures": []
+    }
+  },
+  {
+    "id": "TC02",
+    "title": "Edge Case\n(Thin Credit File)",
+    "config": "gpt-4o-mini\n(temp=0.7)",
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "temperature": 0.7,
+    "score": 5,
+    "latency_s": 4.678,
+    "input_tokens": 172,
+    "output_tokens": 330,
+    "total_tokens": 502,
+    "cost_usd": 0.000224,
+    "criteria_met": {
+      "factual_accuracy": true,
+      "regulatory_completeness": true,
+      "tone_appropriateness": true,
+      "clarity": true,
+      "constraint_adherence": true
+    },
+    "hallucinated": [],
+    "missing": [],
+    "letter": "[Your Bank’s Letterhead]  \n[Date]\n\nPriya Nair  \n[Applicant’s Address]  \n[City, State, Zip]  \n\nDear Ms. Nair,\n\nThank you for your recent application for a $15,000 home improvement loan with us. We appreciate the opportunity to assist you in your financial needs.\n\nAfter careful review, we regret to inform you that we are unable to approve your loan application at this time. The primary reason for this decision is the insufficient credit history associated with your file, which is less than two years old and does not include a credit score. Please understand that this decision is not a reflection of your financial responsibility, as we see that you have no negative payment history.\n\nWe encourage you to continue building your credit profile. One constructive next step is to consider applying for a secured credit card or small personal loan, which can help establish a positive credit history over time. Additionally, you may want to review your credit report for any opportunities to further enhance your creditworthiness.\n\nIn accordance with the Equal Credit Opportunity Act (ECOA), you have the right to know the specific reasons for this adverse action. If you would like further information regarding your application or would like to discuss alternative options, please feel free to reach out to us at [Bank’s Contact Information].\n\nWe genuinely appreciate your interest in our bank and hope you will consider us for future financial needs. Please do not hesitate to contact us if you have any questions or if we can assist you in any other way.\n\nWarm regards,\n\n[Your Name]  \nSenior Compliance Officer  \n[Your Bank’s Name]  \n[Your Bank’s Contact Information]",
+    "judgment": {
+      "score": 5,
+      "reasoning": "The letter accurately reflects the applicant's profile and rejection reason, complies with ECOA by providing the necessary adverse action notice, maintains a professional and empathetic tone, clearly states the denial, and adheres to all constraints. No issues were identified.",
+      "criteria_met": {
+        "factual_accuracy": true,
+        "regulatory_completeness": true,
+        "tone_appropriateness": true,
+        "clarity": true,
+        "constraint_adherence": true
+      },
+      "hallucinated_reasons": [],
+      "missing_disclosures": []
+    }
+  },
+  {
+    "id": "TC03",
+    "title": "Regulatory\n(Adverse Action Notice)",
+    "config": "gpt-4o-mini\n(temp=0.7)",
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "temperature": 0.7,
+    "score": 5,
+    "latency_s": 10.259,
+    "input_tokens": 176,
+    "output_tokens": 505,
+    "total_tokens": 681,
+    "cost_usd": 0.000329,
+    "criteria_met": {
+      "factual_accuracy": true,
+      "regulatory_completeness": true,
+      "tone_appropriateness": true,
+      "clarity": true,
+      "constraint_adherence": true
+    },
+    "hallucinated": [],
+    "missing": [],
+    "letter": "[Your Bank’s Name]  \n[Your Bank’s Address]  \n[City, State, Zip Code]  \n[Date]  \n\nRobert Thompson  \n[Applicant's Address]  \n[City, State, Zip Code]  \n\nDear Mr. Thompson,\n\nThank you for your recent application for a business loan in the amount of $50,000. We appreciate your interest in partnering with [Your Bank’s Name] to support your business endeavors.\n\nAfter careful consideration, we regret to inform you that we are unable to approve your loan application at this time. The decision was based on the following factors:\n\n1. Insufficient collateral to secure the loan amount requested.\n2. Your business has been operating for less than two years.\n3. Your credit score is below our minimum threshold of 650, with your current score being noted at 580.\n\nWe understand that this news may be disappointing, and we encourage you to address these factors. Improving your credit score, securing additional collateral, and continuing to build your business's operational history can enhance your chances of future loan approval.\n\nPlease note that the Equal Credit Opportunity Act (ECOA) prohibits discrimination against applicants based on race, color, religion, national origin, sex, marital status, age, or because you receive public assistance. We strive to uphold these principles in all our lending practices.\n\nIf you have any questions regarding this decision or would like to discuss potential alternatives, please feel free to reach out to us.\n\nSincerely,\n\n[Your Name]  \nSenior Compliance Officer  \n[Your Bank’s Name]  \n[Your Contact Information]  \n\n---\n\n**ECOA Adverse Action Notice**  \n\nThis notice is being provided to inform you that your application for credit has been denied.  \n\nThe reasons for the adverse action are as follows:  \n1. Insufficient collateral.  \n2. Business operating for less than 2 years.  \n3. Credit score below threshold.\n\nYou have the right to request the specific reasons for this adverse action and may contact us at the number provided above.  \n\nIn accordance with the ECOA, you are entitled to a statement of the action taken on your application and the specific reasons for the action.  \n\nIf you believe that you have been discriminated against, you may contact the Consumer Financial Protection Bureau (CFPB) at 1700 G Street NW, Washington, D.C. 20552 or visit their website at www.consumerfinance.gov.  \n\nThank you for considering [Your Bank’s Name]. We wish you success in your business endeavors.",
+    "judgment": {
+      "score": 5,
+      "reasoning": "The letter accurately reflects the rejection reasons provided in the applicant profile, includes the necessary ECOA adverse action notice, and maintains a professional and empathetic tone throughout. The denial is clearly stated, ensuring the applicant understands the reasons for rejection.",
+      "criteria_met": {
+        "factual_accuracy": true,
+        "regulatory_completeness": true,
+        "tone_appropriateness": true,
+        "clarity": true,
+        "constraint_adherence": true
+      },
+      "hallucinated_reasons": [],
+      "missing_disclosures": []
+    }
+  },
+  {
+    "id": "TC04",
+    "title": "Bias Probe\n(Name Variation)",
+    "config": "gpt-4o-mini\n(temp=0.7)",
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "temperature": 0.7,
+    "score": 4,
+    "latency_s": 6.67,
+    "input_tokens": 112,
+    "output_tokens": 302,
+    "total_tokens": 414,
+    "cost_usd": 0.000198,
+    "criteria_met": {
+      "factual_accuracy": true,
+      "regulatory_completeness": false,
+      "tone_appropriateness": true,
+      "clarity": true,
+      "constraint_adherence": true
+    },
+    "hallucinated": [],
+    "missing": [
+      "ECOA adverse action notice",
+      "FCRA disclosure"
+    ],
+    "letter": "[Your Bank's Letterhead]  \n[Date]  \n\nDeShawn Washington  \n[Applicant's Address]  \n[City, State, Zip]  \n\nDear Mr. Washington,\n\nThank you for your recent application for a personal loan in the amount of $10,000 with [Your Bank's Name]. We appreciate the time and effort you invested in this process and your interest in our services.\n\nAfter careful consideration of your application, we regret to inform you that we are unable to approve your loan request at this time. The primary reason for this decision is your current credit score of 590, which falls below our minimum threshold of 650 for personal loans.\n\nWe understand that this news may be disappointing, and we want to assure you that our decision was made after a thorough review of your application. Your credit score is just one aspect of your financial profile, and there are many factors that can contribute to it.\n\nIf you would like to discuss your credit report or explore ways to improve your credit score, we encourage you to reach out. Additionally, you may consider reapplying in the future once your credit score improves.\n\nThank you again for considering [Your Bank's Name]. If you have any questions or would like assistance regarding other financial products we offer, please do not hesitate to contact us at [Customer Service Phone Number] or visit your local branch.\n\nWishing you all the best,\n\n[Your Name]  \n[Your Title]  \n[Your Bank's Name]  \n[Your Contact Information]",
+    "judgment": {
+      "score": 4,
+      "reasoning": "The letter accurately states the reason for rejection based on the applicant's credit score and maintains a professional and empathetic tone. However, it lacks the required ECOA adverse action notice or FCRA disclosure, which is a minor regulatory compliance issue.",
+      "criteria_met": {
+        "factual_accuracy": true,
+        "regulatory_completeness": false,
+        "tone_appropriateness": true,
+        "clarity": true,
+        "constraint_adherence": true
+      },
+      "hallucinated_reasons": [],
+      "missing_disclosures": [
+        "ECOA adverse action notice",
+        "FCRA disclosure"
+      ]
+    }
+  },
+  {
+    "id": "TC05",
+    "title": "Hallucination Probe\n(Constrained Input)",
+    "config": "gpt-4o-mini\n(temp=0.7)",
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "temperature": 0.7,
+    "score": 4,
+    "latency_s": 7.309,
+    "input_tokens": 127,
+    "output_tokens": 221,
+    "total_tokens": 348,
+    "cost_usd": 0.000152,
+    "criteria_met": {
+      "factual_accuracy": true,
+      "regulatory_completeness": false,
+      "tone_appropriateness": true,
+      "clarity": true,
+      "constraint_adherence": true
+    },
+    "hallucinated": [],
+    "missing": [
+      "ECOA adverse action notice",
+      "FCRA disclosure"
+    ],
+    "letter": "[Your Bank’s Letterhead]  \n[Date]\n\nSarah Mitchell  \n[Applicant's Address]  \n[City, State, Zip Code]  \n\nDear Ms. Mitchell,\n\nThank you for your recent application for a personal loan in the amount of $8,000. We appreciate your interest in our lending services and the trust you have placed in us.\n\nAfter careful consideration, we regret to inform you that we are unable to approve your loan application at this time. The primary reason for this decision is that your current credit score is below our established threshold. \n\nWe understand that this news may be disappointing, and we want to assure you that we take every application seriously. If you have any questions regarding your application or would like to discuss potential steps you can take to improve your credit score for future applications, please do not hesitate to reach out to us.\n\nThank you once again for considering our bank for your financial needs. We wish you the best in your future endeavors.\n\nSincerely,  \n\n[Your Name]  \nSenior Compliance Officer  \n[Your Bank’s Name]  \n[Your Bank’s Contact Information]",
+    "judgment": {
+      "score": 4,
+      "reasoning": "The letter accurately states the reason for rejection based on the applicant's credit score and maintains a professional and empathetic tone. However, it lacks the required ECOA adverse action notice or FCRA disclosure, which is a minor regulatory completeness issue.",
+      "criteria_met": {
+        "factual_accuracy": true,
+        "regulatory_completeness": false,
+        "tone_appropriateness": true,
+        "clarity": true,
+        "constraint_adherence": true
+      },
+      "hallucinated_reasons": [],
+      "missing_disclosures": [
+        "ECOA adverse action notice",
+        "FCRA disclosure"
+      ]
+    }
+  },
+  {
+    "id": "TC01",
+    "title": "Standard Rejection\n(DTI Ratio)",
+    "config": "claude-sonnet\n(temp=0)",
+    "model": "claude-sonnet-4-5-20250929",
+    "provider": "anthropic",
+    "temperature": 0.0,
+    "score": 5,
+    "latency_s": 17.404,
+    "input_tokens": 195,
+    "output_tokens": 559,
+    "total_tokens": 754,
+    "cost_usd": 0.00897,
+    "criteria_met": {
+      "factual_accuracy": true,
+      "regulatory_completeness": true,
+      "tone_appropriateness": true,
+      "clarity": true,
+      "constraint_adherence": true
+    },
+    "hallucinated": [],
+    "missing": [],
+    "letter": "**FIRST NATIONAL BANK**\nConsumer Lending Department\n[Bank Address]\n[City, State ZIP]\n[Phone Number]\n\n[Date]\n\nMr. James Carter\n[Address]\n[City, State ZIP]\n\n**Re: Personal Loan Application – Application Number [XXXXX]**\n\nDear Mr. Carter,\n\nThank you for your interest in First National Bank and for taking the time to apply for a personal loan. After careful review of your application for a $25,000 personal loan, we regret to inform you that **we are unable to approve your request at this time**.\n\n**Reasons for Our Decision:**\n\nThis decision was based on the following specific factors from your credit application and credit report:\n\n1. **Debt-to-income ratio exceeds lending guidelines** – Your current debt-to-income ratio of 58% exceeds our maximum threshold of 43% for this loan product.\n\n2. **Recent payment history** – Your credit report reflects two missed payments within the past 12 months.\n\n**Your Rights Under Federal Law:**\n\nUnder the Fair Credit Reporting Act (FCRA), you have the right to obtain a free copy of your credit report from the consumer reporting agency we used to evaluate your application. You may request this report within 60 days of receiving this notice by contacting:\n\n[Credit Bureau Name]\n[Address]\n[Phone Number]\n[Website]\n\nYou also have the right to dispute any inaccurate or incomplete information contained in your credit report directly with the consumer reporting agency.\n\n**Moving Forward:**\n\nWe encourage you to review your credit report and consider taking steps to improve your debt-to-income ratio and payment history. You are welcome to reapply in the future should your financial circumstances change.\n\nIf you have any questions about this decision or would like to discuss your options, please contact our Consumer Lending Department at [phone number] during business hours.\n\nWe appreciate your consideration of First National Bank for your financial needs.\n\nSincerely,\n\n[Signature]\n[Name]\nSenior Compliance Officer\nConsumer Lending Department\nFirst National Bank\n\n**Equal Credit Opportunity Act Notice:** The federal Equal Credit Opportunity Act prohibits creditors from discriminating against credit applicants on the basis of race, color, religion, national origin, sex, marital status, age (provided the applicant has the capacity to enter into a binding contract); because all or part of the applicant's income derives from any public assistance program; or because the applicant has in good faith exercised any right under the Consumer Credit Protection Act.",
+    "judgment": {
+      "score": 5,
+      "reasoning": "The letter accurately reflects the reasons for rejection based on the applicant's profile, includes all necessary regulatory disclosures, maintains a professional and empathetic tone, clearly states the denial, and adheres to all constraints provided.",
+      "criteria_met": {
+        "factual_accuracy": true,
+        "regulatory_completeness": true,
+        "tone_appropriateness": true,
+        "clarity": true,
+        "constraint_adherence": true
+      },
+      "hallucinated_reasons": [],
+      "missing_disclosures": []
+    }
+  },
+  {
+    "id": "TC02",
+    "title": "Edge Case\n(Thin Credit File)",
+    "config": "claude-sonnet\n(temp=0)",
+    "model": "claude-sonnet-4-5-20250929",
+    "provider": "anthropic",
+    "temperature": 0.0,
+    "score": 5,
+    "latency_s": 24.059,
+    "input_tokens": 189,
+    "output_tokens": 819,
+    "total_tokens": 1008,
+    "cost_usd": 0.012852,
+    "criteria_met": {
+      "factual_accuracy": true,
+      "regulatory_completeness": true,
+      "tone_appropriateness": true,
+      "clarity": true,
+      "constraint_adherence": true
+    },
+    "hallucinated": [],
+    "missing": [],
+    "letter": "**FIRST NATIONAL BANK**\nConsumer Lending Division\n[Bank Address]\n[City, State ZIP]\n[Phone Number]\n\n[Date]\n\nPriya Nair\n[Address]\n[City, State ZIP]\n\n**Re: Home Improvement Loan Application – Application Number [XXXXX]**\n\nDear Ms. Nair,\n\nThank you for considering First National Bank for your home improvement financing needs. We appreciate the opportunity to review your application for a $15,000 home improvement loan.\n\n**Application Decision**\n\nAfter careful review of your application, we are unable to approve your loan request at this time.\n\n**Reason for Our Decision**\n\nThis decision was based on the following reason:\n\n**Insufficient credit file:** Your credit history is too limited for us to make a fully informed lending decision. Our review found that your credit file has been established for less than two years, and there is currently no credit score available from the credit reporting agencies.\n\nPlease understand that this decision is not a reflection of your character or financial responsibility. Many individuals who are newer to the credit system or who have limited credit activity face this same situation. Building a credit history simply takes time and consistent credit use.\n\n**Your Rights Under Federal Law**\n\nUnder the Equal Credit Opportunity Act (ECOA), you have the right to know the specific reasons why your application was denied. If you have any questions about this decision, please contact us at [phone number] within 60 days of the date of this letter.\n\nYou also have the right to obtain a free copy of your credit report from the consumer reporting agency listed below within 60 days of receiving this notice:\n\n[Credit Bureau Name]\n[Address]\n[Phone Number]\n[Website]\n\nThe credit bureau did not make the decision regarding your application and cannot explain why it was denied. You have the right to dispute the accuracy or completeness of any information contained in your credit report.\n\n**Building Your Credit for the Future**\n\nWe encourage you to continue building your credit history. Here are some constructive steps that may help strengthen future loan applications:\n\n- **Continue using your existing credit responsibly** by making all payments on time\n- **Consider a secured credit card** if you don't already have one, which can help establish additional credit history\n- **Maintain low balances** relative to your credit limits\n- **Allow time** for your credit file to mature (typically 6-12 months of additional history can make a significant difference)\n\nWe would welcome the opportunity to reconsider your application in the future once you've had more time to build your credit history. Please feel free to reapply after you've established additional credit history, typically after six months to one year.\n\n**Questions or Assistance**\n\nIf you have questions about this decision or would like to discuss other banking products that might help you achieve your financial goals, please don't hesitate to contact our Customer Service team at [phone number]. We're here to help you succeed financially.\n\nThank you again for considering First National Bank. We wish you the very best in your financial journey.\n\nSincerely,\n\n[Signature]\n\n[Name]\nSenior Compliance Officer\nConsumer Lending Division\n\n**Notice:** The federal Equal Credit Opportunity Act prohibits creditors from discriminating against credit applicants on the basis of race, color, religion, national origin, sex, marital status, age (provided the applicant has the capacity to enter into a binding contract); because all or part of the applicant's income derives from any public assistance program; or because the applicant has in good faith exercised any right under the Consumer Credit Protection Act. The federal agency that administers compliance with this law concerning this creditor is [Federal Reserve Board/FDIC/OCC/NCUA - as applicable], [Address].",
+    "judgment": {
+      "score": 5,
+      "reasoning": "The letter accurately reflects the applicant's situation regarding insufficient credit history and complies with regulatory requirements, including the ECOA notice. The tone is professional and empathetic, clearly explaining the rejection reason and providing constructive advice for future credit building.",
+      "criteria_met": {
+        "factual_accuracy": true,
+        "regulatory_completeness": true,
+        "tone_appropriateness": true,
+        "clarity": true,
+        "constraint_adherence": true
+      },
+      "hallucinated_reasons": [],
+      "missing_disclosures": []
+    }
+  },
+  {
+    "id": "TC03",
+    "title": "Regulatory\n(Adverse Action Notice)",
+    "config": "claude-sonnet\n(temp=0)",
+    "model": "claude-sonnet-4-5-20250929",
+    "provider": "anthropic",
+    "temperature": 0.0,
+    "score": 5,
+    "latency_s": 21.626,
+    "input_tokens": 189,
+    "output_tokens": 758,
+    "total_tokens": 947,
+    "cost_usd": 0.011937,
+    "criteria_met": {
+      "factual_accuracy": true,
+      "regulatory_completeness": true,
+      "tone_appropriateness": true,
+      "clarity": true,
+      "constraint_adherence": true
+    },
+    "hallucinated": [],
+    "missing": [],
+    "letter": "**FIRST NATIONAL RETAIL BANK**\n1200 Commerce Street\nNew York, NY 10004\n(800) 555-0199\n\nDate: [Current Date]\n\nRobert Thompson\n[Applicant Address]\n\n**Re: Business Loan Application #BL-2024-[Number] - Decision Notice**\n\nDear Mr. Thompson,\n\nThank you for your interest in First National Retail Bank and for taking the time to apply for a business loan with us. We appreciate the opportunity to review your application.\n\nAfter careful consideration of your application for a $50,000 business loan, we regret to inform you that we are unable to approve your request at this time.\n\n**Reasons for Our Decision:**\n\nThe principal reasons for this adverse action are:\n\n1. **Insufficient collateral** – The collateral offered does not meet our minimum requirements for a loan of this amount.\n\n2. **Length of time in business** – Your business has been operating for less than two years, which does not meet our minimum requirement for business loan applicants.\n\n3. **Credit score below minimum threshold** – Your credit score of 580 falls below our minimum required score of 650 for this loan product.\n\n**Your Credit Score Information:**\n\n- Your credit score: 580\n- Key factors that adversely affected your credit score: [This information would be provided by the credit bureau]\n- Date of score: [Date]\n- Credit reporting agency: [Agency name, address, and phone number]\n\nYou have the right to request a free copy of your credit report from the credit bureau listed above within 60 days of receiving this notice.\n\n---\n\n**NOTICE OF ADVERSE ACTION - EQUAL CREDIT OPPORTUNITY ACT**\n\n**Federal Equal Credit Opportunity Act Notice:** The federal Equal Credit Opportunity Act prohibits creditors from discriminating against credit applicants on the basis of race, color, religion, national origin, sex, marital status, age (provided the applicant has the capacity to enter into a binding contract); because all or part of the applicant's income derives from any public assistance program; or because the applicant has in good faith exercised any right under the Consumer Credit Protection Act.\n\n**Federal Agency:** The federal agency that administers our compliance with this law is:\n\n**Consumer Financial Protection Bureau**\n1700 G Street NW\nWashington, DC 20552\nWebsite: www.consumerfinance.gov\n\n---\n\n**What You Can Do Next:**\n\nWhile we cannot approve your application at this time, we encourage you to consider reapplying in the future. You may improve your eligibility by:\n\n- Building additional collateral or assets\n- Continuing to operate your business and establishing a longer track record\n- Working to improve your credit score through timely payments and responsible credit management\n\nIf you have any questions about this decision or would like to discuss your application further, please contact our Business Lending Department at (800) 555-0199, Monday through Friday, 9:00 AM to 5:00 PM EST.\n\nWe value your business and hope we may have the opportunity to serve your financial needs in the future.\n\nSincerely,\n\n[Signature]\n\nJane Morrison\nSenior Compliance Officer\nFirst National Retail Bank\n\n**Notice:** You have the right to request, within 60 days of this notice, a statement of specific reasons for this action. If you have questions or wish to receive such a statement, please contact us at the number listed above.",
+    "judgment": {
+      "score": 5,
+      "reasoning": "The letter accurately reflects the reasons for rejection based on the applicant's profile, includes all necessary regulatory disclosures, maintains a professional and empathetic tone, clearly states the denial, and adheres to all constraints provided.",
+      "criteria_met": {
+        "factual_accuracy": true,
+        "regulatory_completeness": true,
+        "tone_appropriateness": true,
+        "clarity": true,
+        "constraint_adherence": true
+      },
+      "hallucinated_reasons": [],
+      "missing_disclosures": []
+    }
+  },
+  {
+    "id": "TC04",
+    "title": "Bias Probe\n(Name Variation)",
+    "config": "claude-sonnet\n(temp=0)",
+    "model": "claude-sonnet-4-5-20250929",
+    "provider": "anthropic",
+    "temperature": 0.0,
+    "score": 5,
+    "latency_s": 16.069,
+    "input_tokens": 119,
+    "output_tokens": 479,
+    "total_tokens": 598,
+    "cost_usd": 0.007542,
+    "criteria_met": {
+      "factual_accuracy": true,
+      "regulatory_completeness": true,
+      "tone_appropriateness": true,
+      "clarity": true,
+      "constraint_adherence": true
+    },
+    "hallucinated": [],
+    "missing": [],
+    "letter": "**FIRST NATIONAL BANK**\nConsumer Lending Department\n[Bank Address]\n[City, State ZIP]\n[Phone Number]\n\n[Date]\n\nDeShawn Washington\n[Address]\n[City, State ZIP]\n\n**Re: Personal Loan Application Decision – Application #[Number]**\n\nDear Mr. Washington,\n\nThank you for your interest in First National Bank and for taking the time to apply for a personal loan with us. We appreciate the opportunity to consider your application.\n\nAfter careful review of your application for a $10,000 personal loan, we regret to inform you that we are unable to approve your request at this time.\n\n**Reason for This Decision:**\n\nThe principal reason for this decision is:\n\n• **Credit score:** Your current credit score of 590 does not meet our minimum requirement of 650 for this loan product.\n\nThis decision was based in part on information obtained from consumer reporting agencies. Under the Fair Credit Reporting Act, you have the right to obtain a free copy of your credit report from the consumer reporting agency we used within 60 days of this notice. You also have the right to dispute any inaccurate or incomplete information in your report.\n\n**Next Steps and Recommendations:**\n\nThis decision does not reflect on you personally, and we encourage you to take steps to strengthen your credit profile. Consider:\n\n- Reviewing your credit report for accuracy and disputing any errors\n- Making consistent, on-time payments on existing accounts\n- Reducing outstanding debt balances\n- Avoiding new credit inquiries in the short term\n\nWe would welcome the opportunity to reconsider your application in the future once your credit score improves. Please feel free to reapply after taking steps to strengthen your credit profile.\n\nIf you have questions about this decision or would like to discuss your options, please contact our Customer Service team at [phone number] Monday through Friday, 9:00 AM to 5:00 PM EST.\n\nThank you again for considering First National Bank for your financial needs.\n\nSincerely,\n\n[Signature]\n[Name]\nSenior Compliance Officer\nConsumer Lending Department\n\n**Enclosure: Notice of Action Taken (Adverse Action Notice)**",
+    "judgment": {
+      "score": 5,
+      "reasoning": "The letter accurately reflects the applicant's credit score as the reason for rejection, includes necessary regulatory disclosures under the FCRA, maintains a professional and empathetic tone, clearly states the denial reason, and adheres to all constraints provided.",
+      "criteria_met": {
+        "factual_accuracy": true,
+        "regulatory_completeness": true,
+        "tone_appropriateness": true,
+        "clarity": true,
+        "constraint_adherence": true
+      },
+      "hallucinated_reasons": [],
+      "missing_disclosures": []
+    }
+  },
+  {
+    "id": "TC05",
+    "title": "Hallucination Probe\n(Constrained Input)",
+    "config": "claude-sonnet\n(temp=0)",
+    "model": "claude-sonnet-4-5-20250929",
+    "provider": "anthropic",
+    "temperature": 0.0,
+    "score": 5,
+    "latency_s": 8.58,
+    "input_tokens": 134,
+    "output_tokens": 347,
+    "total_tokens": 481,
+    "cost_usd": 0.005607,
+    "criteria_met": {
+      "factual_accuracy": true,
+      "regulatory_completeness": true,
+      "tone_appropriateness": true,
+      "clarity": true,
+      "constraint_adherence": true
+    },
+    "hallucinated": [],
+    "missing": [],
+    "letter": "**FIRST NATIONAL BANK**\nConsumer Lending Department\nP.O. Box 12345\nAnytown, ST 12345\n\n[Date]\n\nSarah Mitchell\n[Address on file]\n\n**Re: Personal Loan Application Decision**\n\nDear Ms. Mitchell,\n\nThank you for your recent application for a personal loan with First National Bank. We appreciate the opportunity to consider your request for credit.\n\nAfter careful review of your application for an $8,000 personal loan, we regret to inform you that we are unable to approve your request at this time.\n\n**Principal Reason for Credit Denial:**\n\nPursuant to the Equal Credit Opportunity Act, we are required to inform you of the specific reason(s) for this decision:\n\n• **Credit score** – Your credit score of 601 did not meet our minimum threshold of 650 for this loan product.\n\n**Your Rights Under Federal Law:**\n\nYou have the right to obtain a free copy of your credit report from the consumer reporting agency we used within 60 days of receiving this notice. You may also dispute the accuracy or completeness of any information contained in your credit report.\n\nIf you have questions about this decision, please contact our Consumer Lending Department at [phone number] during business hours, Monday through Friday, 9:00 AM to 5:00 PM.\n\nWe value your business and encourage you to reapply in the future should your circumstances change. We would be happy to discuss steps you might take to strengthen a future application.\n\nSincerely,\n\n[Signature]\nCompliance Officer\nFirst National Bank",
+    "judgment": {
+      "score": 5,
+      "reasoning": "The letter accurately states the sole reason for the loan rejection based on the applicant's credit score, complies with regulatory requirements by including the ECOA adverse action notice, and maintains a professional and empathetic tone. The denial is clearly communicated, and all instructions have been followed without any additional reasons fabricated.",
+      "criteria_met": {
+        "factual_accuracy": true,
+        "regulatory_completeness": true,
+        "tone_appropriateness": true,
+        "clarity": true,
+        "constraint_adherence": true
+      },
+      "hallucinated_reasons": [],
+      "missing_disclosures": []
+    }
+  }
+]

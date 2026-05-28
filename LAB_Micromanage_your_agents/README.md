@@ -2,18 +2,16 @@
 
 **Lab:** Micromanage your agents  
 **Domain:** EU Banking — Loan Rejection Letter Quality Evaluation  
-**Dataset:** 15 custom examples across 5 categories  
+**Dataset:** `eu-loan-rejection-letters` — 15 custom examples across 7 categories  
+**Project:** `eu-banking-loan-rejection` on LangSmith EU endpoint  
 
 ---
 
 ## Domain & Dataset Description
 
-A European retail bank wants to automate loan rejection letters compliant with EU Consumer Credit Directive (CCD II) and GDPR. The dataset contains 15 loan rejection scenarios covering standard rejections, thin credit files, business loans, regulatory compliance edge cases, hallucination probes, and bias probes. Each example has an applicant profile as input and a reference checklist of required letter elements as the expected output.
+A European retail bank wants to automate loan rejection letters compliant with EU Consumer Credit Directive (CCD II) and GDPR. The dataset contains 15 loan rejection scenarios covering standard rejections, thin credit files, business loans, regulatory compliance edge cases, hallucination probes, bias probes, and edge cases. Each example has an applicant profile as input and a reference checklist of required letter elements as expected output. A good example has a clear single input (applicant profile), a verifiable output checklist (denial statement + cited reasons + CCD II notice + tone), and belongs to a specific category and difficulty level for categorical analysis.
 
-**What makes a good example:**
-- Input: applicant profile with name, loan amount, and specific rejection reason(s)
-- Output: checklist of elements the letter MUST contain (denial statement, cited reasons, CCD II notice, tone requirements)
-- Diversity: easy standard cases + hard multi-regulatory cases + probes for hallucination and bias
+**Sources:** All 15 examples are custom-designed to reflect real EU banking production scenarios — no existing benchmark was used, as none covers the CCD II/GDPR regulatory intersection.
 
 ---
 
@@ -21,21 +19,25 @@ A European retail bank wants to automate loan rejection letters compliant with E
 
 | File | Purpose |
 |------|---------|
-| `langsmith_evaluation.py` | Main code: dataset creation, target functions, evaluators, experiment execution |
-| `evaluation_summary.md` | One-paragraph evaluation report + metrics table |
+| `langsmith_evaluation.py` | Main code: dataset creation, target functions, evaluators, quick test, experiment execution, summary |
+| `cost_performance_analysis.py` | Step 15: cost-performance analysis with categorical breakdown |
+| `evaluation_summary.md` | Steps 9-10: evaluation report with metrics, failures, categorical analysis |
+| `custom_evaluator_and_ab_comparison.md` | Steps 11-14: custom evaluator design + A/B comparison results |
+| `optimization_summary.md` | Step 16: one-paragraph optimization recommendation |
 | `requirements.txt` | Python dependencies |
+| `langsmith_results_comparison.png` | LangSmith A/B comparison screenshot |
+| `langsmith_experiments_overview.png` | LangSmith experiments overview screenshot |
 | `README.md` | This file |
 
 ---
 
 ## Approach
 
-1. Created a 15-example custom LangSmith dataset (`eu-loan-rejection-letters`) covering 5 difficulty categories
-2. Implemented two target functions: `gpt-4o-mini` at temp=0 and temp=0.7, both with `@traceable` for automatic LangSmith tracing
-3. Set up two evaluators:
-   - **Correctness** (openevals built-in): does the letter contain all required elements?
-   - **CCD II Compliance** (custom): is the Article 18 explanation notice present?
-4. Ran A/B comparison via `client.evaluate()` — results visible in LangSmith UI
+1. **Dataset** — 15 custom EU banking examples with inputs, reference outputs, category + difficulty metadata
+2. **Target functions** — `gpt-4o-mini` at temp=0 and temp=0.7, both `@traceable`
+3. **Evaluators** — correctness (openevals) + custom CCD II compliance (plain OpenAI call)
+4. **Experiments** — A/B via `client.evaluate()`, results in LangSmith UI
+5. **Analysis** — categorical breakdown, cost-performance frontier, failure analysis
 
 ---
 
@@ -49,17 +51,23 @@ pip install -r requirements.txt
 LANGSMITH_API_KEY=your_langsmith_key
 OPENAI_API_KEY=your_openai_key
 
-# 3. Run
+# 3. Run evaluation (creates dataset, quick test, both experiments)
 python langsmith_evaluation.py
+
+# 4. Run cost-performance analysis
+python cost_performance_analysis.py
 ```
 
-Results appear automatically in your LangSmith project:  
-**Project:** `eu-banking-loan-rejection`  
-**Endpoint:** `https://eu.smith.langchain.com`
+Results appear in LangSmith: **https://eu.smith.langchain.com**  
+Project: `eu-banking-loan-rejection` | Dataset: `eu-loan-rejection-letters`
 
 ---
 
-## LangSmith Links
+## Key Results
 
-- Dataset: `eu-loan-rejection-letters` (visible in Datasets & Experiments)
-- Experiments: `gpt4o-mini-t0-*` and `gpt4o-mini-t07-*`
+| Config | Correctness | CCD Compliance | Cost/letter | Latency P50 |
+|---|---|---|---|---|
+| gpt-4o-mini (temp=0) | **1.00** | 0.93 | $0.000227 | 7.15s |
+| gpt-4o-mini (temp=0.7) | 0.87 | 0.93 | $0.000220 | 6.41s |
+
+**Recommendation:** temp=0 for production — perfect correctness at identical cost.

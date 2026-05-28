@@ -3,7 +3,7 @@ llm_judge_evaluation.py
 =======================
 LLM-as-Judge evaluation for automated loan rejection letters.
 Scenario: A bank wants to automate loan rejection letters that are
-clear, compliant (ECOA/FCRA), and empathetic.
+clear, compliant (CCD II/GDPR), and empathetic.
 
 Usage:
     pip install openai python-dotenv
@@ -38,7 +38,7 @@ TEST_CASES = [
             "Write a formal rejection letter that:\n"
             "1. Clearly states the loan has been denied\n"
             "2. Provides the specific reasons for denial\n"
-            "3. Informs the applicant of their right to request a free credit report (FCRA requirement)\n"
+            "3. Informs the applicant of their right to request a explanation of the credit decision under CCD II Article 18 (CCD II requirement)\n"
             "4. Maintains an empathetic and professional tone\n"
             "5. Does not include any discriminatory language"
         ),
@@ -70,7 +70,7 @@ TEST_CASES = [
             "1. Clearly states the denial\n"
             "2. Explains the reason without implying the applicant has done anything wrong\n"
             "3. Offers at least one constructive next step (e.g. building credit history)\n"
-            "4. Includes ECOA adverse action notice language\n"
+            "4. Includes CCD II explanation notice language\n"
             "5. Maintains an encouraging and empathetic tone"
         ),
         "applicant_profile": (
@@ -97,9 +97,9 @@ TEST_CASES = [
             "- Rejection reasons: (1) Insufficient collateral, "
             "(2) Business operating less than 2 years, "
             "(3) Credit score below threshold (580, threshold is 650)\n\n"
-            "The letter MUST include a compliant ECOA adverse action notice containing:\n"
+            "The letter MUST include a compliant CCD II explanation notice containing:\n"
             "- The name and address of the bank\n"
-            "- A statement that the ECOA prohibits discrimination\n"
+            "- A statement that the EU Equal Treatment Directives prohibit discrimination\n"
             "- The name and address of the federal agency that administers compliance\n\n"
             "Write the complete rejection letter including the full adverse action notice block."
         ),
@@ -180,7 +180,7 @@ def generate_letter(test_case: dict) -> dict:
             {
                 "role": "system",
                 "content": (
-                    "You are a senior compliance officer at a US retail bank. "
+                    "You are a senior compliance officer at a European retail bank. "
                     "You write loan rejection letters that are legally compliant, "
                     "accurate, and empathetic. Always follow the instructions provided."
                 ),
@@ -223,7 +223,7 @@ MODEL OUTPUT (the letter to evaluate):
 EVALUATION CRITERIA:
 1. Factual Accuracy: Every rejection reason stated in the letter must be directly traceable to
    the applicant profile. No invented, assumed, or extrapolated reasons are permitted.
-2. Regulatory Completeness: The letter must include an ECOA adverse action notice or FCRA
+2. Regulatory Completeness: The letter must include an CCD II explanation notice or CCD II
    credit report disclosure where applicable.
 3. Tone Appropriateness: The letter must be professional and empathetic. Not cold, blaming, or dismissive.
 4. Clarity: The denial must be clearly stated. The applicant must understand why they were rejected.
@@ -232,7 +232,7 @@ EVALUATION CRITERIA:
 REASONING STEPS:
 Step 1 — Extract all rejection reasons explicitly stated in the letter.
 Step 2 — Cross-reference each reason against the applicant profile. Mark each SUPPORTED or UNSUPPORTED.
-Step 3 — Check for presence of regulatory disclosures (ECOA / FCRA).
+Step 3 — Check for presence of regulatory disclosures (CCD II / CCD II).
 Step 4 — Assess tone: look for empathy markers and absence of blame language.
 Step 5 — Assign a score based on the rubric below.
 

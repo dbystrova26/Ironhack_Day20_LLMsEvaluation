@@ -1,6 +1,6 @@
 # Evaluation Design — Loan Rejection Letter Automation
 
-**Scenario:** A bank automates loan rejection letters. Letters must be clear, compliant with ECOA/FCRA regulations, and empathetic in tone.
+**Scenario:** A bank automates loan rejection letters. Letters must be clear, compliant with EU Consumer Credit Directive (CCD II) and GDPR, and empathetic in tone.
 
 ---
 
@@ -23,7 +23,7 @@ Applicant profile:
 Write a formal rejection letter that:
 1. Clearly states the loan has been denied
 2. Provides the specific reasons for denial
-3. Informs the applicant of their right to request a free credit report (FCRA requirement)
+3. Informs the applicant of their right to request a free credit report (CCD II requirement)
 4. Maintains an empathetic and professional tone
 5. Does not include any discriminatory language
 ```
@@ -57,15 +57,15 @@ Write a rejection letter that:
 1. Clearly states the denial
 2. Explains the reason without implying the applicant has done anything wrong
 3. Offers constructive next steps (e.g., building credit history)
-4. Includes ECOA adverse action notice language
+4. Includes CCD II explanation notice language
 5. Maintains an encouraging and empathetic tone
 ```
 
 **Ground Truth:**
-- [x] Yes — Letter must include: (a) denial statement, (b) thin file explanation without blame framing, (c) at least one actionable next step, (d) ECOA adverse action notice, (e) encouraging tone.
+- [x] Yes — Letter must include: (a) denial statement, (b) thin file explanation without blame framing, (c) at least one actionable next step, (d) CCD II explanation notice, (e) encouraging tone.
 
 **Verification Method:**
-- [x] Rule-based: Check for ECOA adverse action language ("adverse action", "Equal Credit Opportunity Act"), presence of next steps, absence of blame language ("you failed", "you lack").
+- [x] Rule-based: Check for CCD II adverse action language ("adverse action", "EU Consumer Credit Directive (CCD II)"), presence of next steps, absence of blame language ("you failed", "you lack").
 - [x] Human evaluation: Assess whether tone genuinely feels encouraging vs. patronising — a nuance rule-based checks cannot fully capture.
 
 **Primary Failure Mode:** Incorrect tone — framing thin credit as a personal failure rather than circumstance, which is both inaccurate and potentially off-putting to a customer who could reapply in future.
@@ -85,9 +85,9 @@ Applicant profile:
 - Loan requested: $50,000 business loan
 - Rejection reasons: (1) Insufficient collateral, (2) Business operating less than 2 years, (3) Credit score below threshold (580, threshold is 650)
 
-The letter MUST include a compliant ECOA adverse action notice containing:
+The letter MUST include a compliant CCD II explanation notice containing:
 - The name and address of the bank
-- A statement that the ECOA prohibits discrimination
+- A statement that the EU Equal Treatment Directives prohibit discrimination
 - The name and address of the federal agency that administers compliance
 
 Write the complete rejection letter including the full adverse action notice block.
@@ -97,12 +97,12 @@ Write the complete rejection letter including the full adverse action notice blo
 - [x] Yes — The letter must contain a complete adverse action notice with all three required elements: bank identification, ECOA non-discrimination statement, and federal agency contact.
 
 **Verification Method:**
-- [x] Rule-based: Regex check for ECOA mention, federal agency reference (e.g. "Consumer Financial Protection Bureau" or "CFPB"), and bank address placeholder.
+- [x] Rule-based: Regex check for ECOA mention, federal agency reference (e.g. "European Banking Authority (EBA)" or "CFPB"), and bank address placeholder.
 - [x] LLM-as-judge: Verify the adverse action block is complete and correctly positioned in the letter (not buried or truncated).
 
 **Primary Failure Mode:** Incomplete adverse action notice — model may include partial boilerplate or omit the federal agency contact, which is the most commonly missed element in real-world compliance failures.
 
-**Why this prompt matters:** ECOA adverse action notices are legally mandatory. Incomplete notices expose the bank to regulatory fines and class-action risk.
+**Why this prompt matters:** CCD II explanation notices are legally mandatory. Incomplete notices expose the bank to regulatory fines and class-action risk.
 
 ---
 
@@ -192,7 +192,7 @@ MODEL OUTPUT (the letter to evaluate):
 
 EVALUATION CRITERIA:
 1. Factual Accuracy: Every rejection reason stated in the letter must be directly traceable to the applicant profile. No invented, assumed, or extrapolated reasons are permitted.
-2. Regulatory Completeness: The letter must include an ECOA adverse action notice or FCRA credit report disclosure where applicable.
+2. Regulatory Completeness: The letter must include an CCD II explanation notice or GDPR automated decision-making disclosure (Article 22) where applicable.
 3. Tone Appropriateness: The letter must be professional and empathetic. It must not be cold, blaming, or dismissive.
 4. Clarity: The denial must be clearly stated. The applicant must be able to understand why they were rejected from reading the letter alone.
 5. Constraint Adherence: The letter must follow all instructions given in the original prompt.
